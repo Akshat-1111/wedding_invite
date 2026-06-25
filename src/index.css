@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #FAF7F2;
+    color: #3a2a1a;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+  .font-hind { font-family: 'Hind', sans-serif; }
+
+  .text-gold { color: #C9A96E; }
+  .text-rose { color: #8B3A52; }
+  .text-marigold { color: #E8A020; }
+  .bg-blush { background-color: #F5E6E0; }
+  .bg-ivory { background-color: #FAF7F2; }
+  .border-gold { border-color: #C9A96E; }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #C9A96E 0%, #E8C97A 50%, #A0784A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Envelope 3D styles */
+.envelope-scene {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.envelope-flap {
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Parchment texture */
+.parchment {
+  background-color: #FAF3E8;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(180, 140, 80, 0.06) 28px,
+      rgba(180, 140, 80, 0.06) 29px
+    );
+}
+
+/* Marigold divider */
+.marigold-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.marigold-divider::before,
+.marigold-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #C9A96E, transparent);
+}
+
+/* Scroll hint bounce */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+/* Countdown tick */
+@keyframes tick {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.tick-animate {
+  animation: tick 0.15s ease;
+}
+
+/* Music pulse */
+@keyframes music-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 169, 110, 0); }
+}
+.music-pulse {
+  animation: music-pulse 2s ease-in-out infinite;
+}
+
+/* Mandala watermark */
+.mandala-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='%23C9A96E' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='100' cy='100' r='70' fill='none' stroke='%23C9A96E' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='100' cy='100' r='50' fill='none' stroke='%23C9A96E' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M100 10 L110 90 L100 100 L90 90 Z' fill='%23C9A96E' opacity='0.08'/%3E%3Cpath d='M100 190 L110 110 L100 100 L90 110 Z' fill='%23C9A96E' opacity='0.08'/%3E%3Cpath d='M10 100 L90 110 L100 100 L90 90 Z' fill='%23C9A96E' opacity='0.08'/%3E%3Cpath d='M190 100 L110 110 L100 100 L110 90 Z' fill='%23C9A96E' opacity='0.08'/%3E%3Cpath d='M29 29 L93 95 L100 100 L95 93 Z' fill='%23C9A96E' opacity='0.08'/%3E%3Cpath d='M171 29 L107 95 L100 100 L105 93 Z' fill='%23C9A96E' opacity='0.08'/%3E%3Cpath d='M29 171 L93 107 L100 100 L95 107 Z' fill='%23C9A96E' opacity='0.08'/%3E%3Cpath d='M171 171 L107 107 L100 100 L105 107 Z' fill='%23C9A96E' opacity='0.08'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Smooth reveal */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Story carousel */
+.story-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.story-card-snap {
+  scroll-snap-align: center;
+}
+
+/* Hide scrollbar but keep scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

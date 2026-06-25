@@ -1,0 +1,65 @@
+{
+  "couple": {
+    "bride": "Meenal",
+    "groom": "Deep",
+    "monogram": "D & M"
+  },
+  "tagline": "दो दिल, एक सफ़र — और यह सफ़र अभी शुरू हो रहा है",
+  "tagline_en": "Two hearts, one journey — and it begins now",
+  "music_url": "/music/background.mp3",
+  "hero_image": "/hero-couple.png",
+  "logo_image": "/logo-gold.png",
+  "countdown_target": "2026-08-20T09:00:00",
+  "events": [
+    {
+      "name": "Haldi",
+      "name_hi": "हल्दी",
+      "date": "19 August 2026",
+      "time": "1:30 PM – 5:30 PM",
+      "emoji": "🌼",
+      "accent": "marigold"
+    },
+    {
+      "name": "Sangeet",
+      "name_hi": "संगीत",
+      "date": "19 August 2026",
+      "time": "7:00 PM – 11:30 PM",
+      "emoji": "🎶",
+      "accent": "rose"
+    },
+    {
+      "name": "Wedding",
+      "name_hi": "विवाह",
+      "date": "20 August 2026",
+      "time": "9:00 AM – 12:00 PM",
+      "emoji": "💍",
+      "accent": "gold"
+    }
+  ],
+  "story": [
+    {
+      "title": "How It Began",
+      "title_hi": "शुरुआत",
+      "text": "It was an arranged meeting, but the moment their eyes met, something felt different. Families had arranged it, but the heart had already decided.",
+      "image_url": "/images/1.jpeg"
+    },
+    {
+      "title": "Getting to Know You",
+      "title_hi": "पहचान",
+      "text": "Long calls, shared playlists, and stolen glances. Every conversation felt like coming home.",
+      "image_url": "/images/2.jpeg"
+    },
+    {
+      "title": "Forever Decided",
+      "title_hi": "हमेशा के लिए",
+      "text": "When the moment came, no grand gesture was needed. Just two people knowing, with quiet certainty, that this was it.",
+      "image_url": "/images/3.jpeg"
+    }
+  ],
+  "venue": {
+    "name": "Solaris Hotel & Club",
+    "address": "Near Jay Nagar, Rajiv Gandhi Circle, Indore, MP 452001",
+    "map_url": "https://maps.google.com/maps?gs_lcrp=EgZjaHJvbWUqEwgFEC4YrwEYxwEYgAQYmAUYmQUyBggAEEUYOTIGCAEQIxgnMgoIAhAAGLEDGIAEMgoIAxAAGLEDGIAEMgoIBBAAGLEDGIAEMhMIBRAuGK8BGMcBGIAEGJgFGJkFMgcIBhAAGIAEMg0IBxAuGK8BGMcBGIAEMgcICBAAGI8CMgcICRAAGI8C0gEIMzgwOGowajeoAgCwAgA",
+    "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.5!2d75.8577!3d22.7196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSolaris+Hotel+%26+Club!5e0!3m2!1sen!2sin!4v1234567890"
+  }
+}
