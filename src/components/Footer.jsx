@@ -21,16 +21,35 @@ export default function Footer({ data }) {
     audio.addEventListener('canplaythrough', () => setAudioReady(true))
     audio.addEventListener('error', () => setAudioReady(false))
 
-    // Attempt to play immediately on load
-    audio.play().then(() => {
-      setPlaying(true)
-    }).catch(e => {
-      console.log('Autoplay blocked by browser:', e)
-    })
+    // Browsers block autoplay in production without user interaction.
+    // We try to play immediately, and if blocked, we wait for the first touch/scroll.
+    let initialPlay = false;
+    const tryPlay = () => {
+      if (!initialPlay) {
+        audio.play().then(() => {
+          initialPlay = true;
+          setPlaying(true);
+          ['click', 'touchstart', 'scroll'].forEach(evt => 
+            document.removeEventListener(evt, tryPlay)
+          );
+        }).catch(e => {
+          // Autoplay blocked, silently wait for interaction
+        });
+      }
+    };
+
+    tryPlay();
+
+    ['click', 'touchstart', 'scroll'].forEach(evt => 
+      document.addEventListener(evt, tryPlay, { passive: true })
+    );
 
     return () => {
       audio.pause()
       audio.src = ''
+      ['click', 'touchstart', 'scroll'].forEach(evt => 
+        document.removeEventListener(evt, tryPlay)
+      );
     }
   }, [data.music_url])
 
