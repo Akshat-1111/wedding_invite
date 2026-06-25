@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Envelope({ data }) {
+  // data.ganesh_image used in parchment card bottom
   const sectionRef = useRef(null)
   const flapRef = useRef(null)
   const cardRef = useRef(null)
@@ -239,6 +240,19 @@ export default function Envelope({ data }) {
               Deep &amp; Meenal
             </p>
           </div>
+          {data.ganesh_image && (
+            <img
+              src={data.ganesh_image}
+              alt="Shri Ganesh"
+              style={{
+                width: 48, height: 48,
+                objectFit: 'contain',
+                opacity: 0.85,
+                marginTop: 8,
+                filter: 'sepia(0.3) saturate(1.2)',
+              }}
+            />
+          )}
           <FloralBottom />
         </div>
       </div>

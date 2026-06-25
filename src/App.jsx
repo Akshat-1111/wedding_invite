@@ -10,22 +10,17 @@ import Timeline from './components/Timeline'
 import Story from './components/Story'
 import Venue from './components/Venue'
 import Footer from './components/Footer'
-import { Agentation } from "agentation";
+import { useMusic } from './hooks/useMusic'
+
 gsap.registerPlugin(ScrollTrigger)
 
 export default function App() {
+  const { playing, toggle } = useMusic(data.music_url)
+
   useEffect(() => {
-    // Mobile: use touch events for ScrollTrigger
     ScrollTrigger.config({ ignoreMobileResize: true })
-
-    // Refresh on fonts load
-    document.fonts.ready.then(() => {
-      ScrollTrigger.refresh()
-    })
-
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill())
-    }
+    document.fonts.ready.then(() => ScrollTrigger.refresh())
+    return () => ScrollTrigger.getAll().forEach(t => t.kill())
   }, [])
 
   return (
@@ -37,8 +32,7 @@ export default function App() {
       <Timeline data={data} />
       <Story data={data} />
       <Venue data={data} />
-      <Footer data={data} />
-      {process.env.NODE_ENV === "development" && <Agentation />}
+      <Footer data={data} playing={playing} onToggle={toggle} />
     </main>
   )
 }
